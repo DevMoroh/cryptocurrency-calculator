@@ -1,0 +1,74 @@
+[
+  {
+    "title": "XRP",
+    "name": "xrp",
+    "exchanges" : [
+      {
+        "ccy": "USD",
+        "base_ccy": "XRP",
+        "buy": "24.95000",
+        "sale": "25.30000"
+      },
+      {
+        "ccy": "EUR",
+        "base_ccy": "XRP",
+        "buy": "27.55000",
+        "sale": "28.30000"
+      },
+      {
+        "ccy": "RUR",
+        "base_ccy": "XRP",
+        "buy": "0.34700",
+        "sale": "0.38700"
+      }
+    ]
+  },
+  {
+    "title": "ETH",
+    "name": "eth",
+    "exchanges": [
+      {
+        "ccy": "USD",
+        "base_ccy": "ETH",
+        "buy": "24.95000",
+        "sale": "25.30000"
+      },
+      {
+        "ccy": "EUR",
+        "base_ccy": "ETH",
+        "buy": "27.55000",
+        "sale": "28.30000"
+      },
+      {
+        "ccy": "RUR",
+        "base_ccy": "ETH",
+        "buy": "0.34700",
+        "sale": "0.38700"
+      }
+    ]
+  },
+  {
+    "title": "BTC",
+    "name": "btc",
+    "exchanges": [
+      {
+        "ccy": "USD",
+        "base_ccy": "BTC",
+        "buy": "24.95000",
+        "sale": "25.30000"
+      },
+      {
+        "ccy": "EUR",
+        "base_ccy": "BTC",
+        "buy": "27.55000",
+        "sale": "28.30000"
+      },
+      {
+        "ccy": "RUR",
+        "base_ccy": "BTC",
+        "buy": "0.34700",
+        "sale": "0.38700"
+      }
+    ]
+  }
+]
