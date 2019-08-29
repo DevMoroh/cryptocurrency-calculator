@@ -1,0 +1,7 @@
+.Cryptocurrencies {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}

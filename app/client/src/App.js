@@ -1,23 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import * as actions from './store/actions';
+
 import './App.css';
 import Cryptocurrencies from './components/Cryptocurrencies/Cryptocurrencies';
 
 class App extends Component {
 
-  state = {
-      currencies: []
-  };
+  // state = {
+  //     currencies: []
+  // };
 
   componentDidMount() {
-
+      this.props.onCryptocurrenciesInit();
   }
 
   render() {
       return (
           <div className="App">
-              <Cryptocurrencies currencies={this.props.currencies} />
+              <Cryptocurrencies currencies={this.props.cryptocurrencies} />
+              <div>
+                  <p>Selected coin: {this.props.selectedCurrency}</p>
+              </div>
           </div>
       );
   }
@@ -25,8 +30,16 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currencies: state.cryptocurrencies
+        cryptocurrencies: state.cryptocurrencies,
+        selectedCurrency: state.selectedCurrency
     }
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeCurrency: (currencyName) => dispatch(actions.changeCurrency(currencyName)),
+        onCryptocurrenciesInit: () => dispatch(actions.cryptocurrenciesInit())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

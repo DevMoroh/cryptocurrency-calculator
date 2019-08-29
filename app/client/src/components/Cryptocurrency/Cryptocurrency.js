@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+import * as actions from '../../store/actions';
 import classes from './Cryptocurrency.module.css';
 
 const cryptocurrency = (props) => {
 
-    const {currency} = props;
+    const {currency, changeCurrency} = props;
     const {exchanges} = currency;
 
     const list = exchanges.map((exchange) => {
@@ -13,7 +16,7 @@ const cryptocurrency = (props) => {
     });
 
     return (
-        <div>
+        <div onClick={changeCurrency}>
             <div>
                 <img src={currency.logo} alt={currency.name} />
                 <p>{currency.title}</p>
@@ -25,4 +28,10 @@ const cryptocurrency = (props) => {
     );
 };
 
-export default cryptocurrency;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeCurrency: (currencyName) => dispatch(actions.changeCurrency(currencyName)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(cryptocurrency);

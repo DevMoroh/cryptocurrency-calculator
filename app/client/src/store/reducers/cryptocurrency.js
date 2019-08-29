@@ -24,6 +24,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false
             };
+        case actionTypes.CRYPTOCURRENCY_SELECT:
+            return {
+                ...state,
+                selectedCurrency: action.currencyName
+            };
         default:
             return state;
     }

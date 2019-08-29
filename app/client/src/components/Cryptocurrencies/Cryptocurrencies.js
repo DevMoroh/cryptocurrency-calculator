@@ -8,7 +8,7 @@ const cryptocurrencies = (props) => {
     const {currencies} = props;
 
     return (
-        <div>
+        <div className={classes.Cryptocurrencies}>
             {currencies.map((currency) => <Cryptocurrency
                 key={currency.name}
                 currency={currency}
