@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
 
 import classes from './Button.module.css';
 
-const button = (props) => (
-    <button
+const button = (props) => {
+    console.log(props.isActive);
+   return <button
+        className={[classes.Button, props.isActive ? classes.active : ''].join(' ')}
         onClick={props.clicked}
-        className={classes.Button}
     >
         {props.children}
     </button>
-);
+};
 
 export default button;

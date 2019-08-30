@@ -5,5 +5,11 @@ export {
     changeCryptocurrency,
     initStart,
     initSuccess,
-    initFail
+    initFail,
+    setCryptocurrency,
 } from './cryptocurrency';
+
+export {
+    calculate,
+    setCalculatorResult
+} from './calculator';

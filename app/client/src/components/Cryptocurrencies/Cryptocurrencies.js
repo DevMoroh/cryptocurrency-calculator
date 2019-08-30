@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import Cryptocurrency from '../Cryptocurrency/Cryptocurrency';
 import classes from './Cryptocurrencies.module.css';

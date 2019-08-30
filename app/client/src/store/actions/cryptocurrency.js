@@ -16,9 +16,17 @@ export const cryptocurrenciesInit = () => {
 export const changeCryptocurrency = (cryptocurrency) => {
     return {
         type: actionTypes.CRYPTOCURRENCY_SELECT,
-        cryptocurrency: cryptocurrency
+        cryptocurrency: cryptocurrency,
     };
 };
+
+export const setCryptocurrency = (cryptocurrency) => {
+    return {
+        type: actionTypes.CRYPTOCURRENCY_SET,
+        cryptocurrency: cryptocurrency,
+    };
+};
+
 
 export const initSuccess = () => {
     return {

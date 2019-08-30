@@ -29,7 +29,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cryptocurrencies: state.cryptocurrencies,
+        cryptocurrencies: state.cryptocurrency.cryptocurrencies,
     }
 };
 

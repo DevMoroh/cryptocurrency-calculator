@@ -1,23 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, compose} from 'redux';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga'
 
 import './index.css';
 import App from './App';
 import cryptocurrencyReducer from './store/reducers/cryptocurrency';
-import {watchInitCurrencies} from './sagas'
+import calculatorReducer from './store/reducers/calculator';
+import rootSaga from './sagas'
 
-const composeEnhancers = process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+const composeEnhancers = (process.env.NODE_ENV === 'development'
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(cryptocurrencyReducer, composeEnhancers(applyMiddleware(thunk, sagaMiddleware)));
+const rootReducer = combineReducers({
+    calculator: calculatorReducer,
+    cryptocurrency: cryptocurrencyReducer,
+});
 
-sagaMiddleware.run(watchInitCurrencies);
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, sagaMiddleware)));
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>

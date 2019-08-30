@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     cryptocurrencies: [],
-    selectedCurrency: null,
+    cryptocurrency: null,
     loading: false,
 };
 
@@ -27,7 +27,10 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CRYPTOCURRENCY_SELECT:
             return {
                 ...state,
-                selectedCurrency: action.cryptocurrency
+                cryptocurrency: {
+                    ...action.cryptocurrency,
+                    exchanges: [...action.cryptocurrency.exchanges]
+                }
             };
         default:
             return state;
