@@ -9,7 +9,7 @@ function* InitCurrencies() {
     yield put(actions.initStart());
 
     try {
-        const response = yield axios.get('localhost:3000/api/exchanges');
+        const response = yield axios.get('http://localhost:3000/api/exchanges');
 
         yield put(actions.setCryptocurrencies(response.data))
     } catch (error) {

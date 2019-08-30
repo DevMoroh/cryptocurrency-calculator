@@ -5,6 +5,7 @@ import * as actions from './store/actions';
 
 import './App.css';
 import Cryptocurrencies from './components/Cryptocurrencies/Cryptocurrencies';
+import Calculator from './components/Calculator/Calculator';
 
 class App extends Component {
 
@@ -20,9 +21,7 @@ class App extends Component {
       return (
           <div className="App">
               <Cryptocurrencies currencies={this.props.cryptocurrencies} />
-              <div>
-                  <p>Selected coin: {this.props.selectedCurrency}</p>
-              </div>
+              <Calculator />
           </div>
       );
   }
@@ -31,13 +30,11 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         cryptocurrencies: state.cryptocurrencies,
-        selectedCurrency: state.selectedCurrency
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeCurrency: (currencyName) => dispatch(actions.changeCurrency(currencyName)),
         onCryptocurrenciesInit: () => dispatch(actions.cryptocurrenciesInit())
     };
 };

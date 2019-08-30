@@ -2,7 +2,7 @@
 export {
     setCryptocurrencies,
     cryptocurrenciesInit,
-    changeCurrency,
+    changeCryptocurrency,
     initStart,
     initSuccess,
     initFail

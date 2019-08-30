@@ -6,22 +6,22 @@ import classes from './Cryptocurrency.module.css';
 
 const cryptocurrency = (props) => {
 
-    const {currency, changeCurrency} = props;
+    const {currency, onChangeCryptocurrency} = props;
     const {exchanges} = currency;
 
     const list = exchanges.map((exchange) => {
-        return <li>
-            <p><b>{exchange.ccy}:</b> {exchange.sale}</p>
+        return <li key={exchange.ccy}>
+            <p><b style={{ marginRight: '15px'}}>{exchange.ccy}:</b>    {exchange.sale}</p>
         </li>
     });
 
     return (
-        <div onClick={changeCurrency}>
-            <div>
+        <div className={classes.Cryptocurrency} onClick={() => onChangeCryptocurrency(currency)}>
+            <div className={classes.ImageBlock}>
                 <img src={currency.logo} alt={currency.name} />
                 <p>{currency.title}</p>
             </div>
-            <ul>
+            <ul className={classes.Currencylist}>
                 {list}
             </ul>
         </div>
@@ -30,7 +30,7 @@ const cryptocurrency = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeCurrency: (currencyName) => dispatch(actions.changeCurrency(currencyName)),
+        onChangeCryptocurrency: (cryptocurrency) => dispatch(actions.changeCryptocurrency(cryptocurrency)),
     };
 };
 

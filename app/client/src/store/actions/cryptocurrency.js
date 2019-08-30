@@ -13,10 +13,10 @@ export const cryptocurrenciesInit = () => {
     }
 };
 
-export const changeCurrency = (currencyName) => {
+export const changeCryptocurrency = (cryptocurrency) => {
     return {
         type: actionTypes.CRYPTOCURRENCY_SELECT,
-        currencyName
+        cryptocurrency: cryptocurrency
     };
 };
 

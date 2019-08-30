@@ -2,6 +2,7 @@
   {
     "title": "XRP",
     "name": "xrp",
+    "logo": "assets/XRP.png",
     "exchanges" : [
       {
         "ccy": "USD",
@@ -26,6 +27,7 @@
   {
     "title": "ETH",
     "name": "eth",
+    "logo": "assets/ETH.png",
     "exchanges": [
       {
         "ccy": "USD",
@@ -50,6 +52,7 @@
   {
     "title": "BTC",
     "name": "btc",
+    "logo": "assets/BTC.png",
     "exchanges": [
       {
         "ccy": "USD",

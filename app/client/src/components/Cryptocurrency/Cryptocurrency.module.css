@@ -1,0 +1,32 @@
+.Cryptocurrency {
+    display: flex;
+    flex-flow: row;
+    background-color: #0D2F52;
+    width: 25%;
+    padding: 15px;
+    height: 110px
+}
+
+
+.Currencylist {
+    color: #7DACF3;
+    padding: 0;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.Currencylist p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ImageBlock img {
+    width: 60%;
+}
+
+.ImageBlock p {
+    color: #86c551;
+    font-weight: bold;
+    font-size: 11px;
+    margin: 4px auto;
+}

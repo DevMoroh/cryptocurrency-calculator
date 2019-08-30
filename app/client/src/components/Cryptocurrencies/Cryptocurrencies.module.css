@@ -1,7 +1,8 @@
 .Cryptocurrencies {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     align-items: center;
-    width: 100%;
-    margin: auto;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 100px auto auto auto;
 }
