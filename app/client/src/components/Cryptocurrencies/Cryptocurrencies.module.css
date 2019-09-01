@@ -3,17 +3,14 @@
     flex-flow: row;
     align-items: center;
     justify-content: space-evenly;
-    width: 80%;
+    width: 850px;
     margin: 100px auto auto auto;
 }
 
 @media screen and (max-width: 900px) {
     .Cryptocurrencies {
-        display: flex;
         flex-flow: column;
-        align-items: center;
         justify-content: space-between;
         width: 80%;
-        margin: 100px auto auto auto;
     }
 }

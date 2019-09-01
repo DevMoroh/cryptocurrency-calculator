@@ -8,11 +8,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.CALCULATOR_CALCULATE:
+        case actionTypes.CALCULATOR_SET_VOLUME:
             return {
                 ...state,
-                exchange: action.exchange,
                 volume: action.volume
+            };
+        case actionTypes.CALCULATOR_SET_EXCHANGE:
+            return {
+                ...state,
+                exchange: {...action.exchange},
             };
         case actionTypes.CALCULATOR_SET_RESULT:
             return {

@@ -1,79 +1,61 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
 
-import * as actions from '../../store/actions';
 import classes from './Calculator.module.css';
 import Button from '../UI/Button/Button';
+import Input from '../UI/Input/Input';
 
-class Calculator extends Component {
+const calculator = (props) => {
 
-    onChangeVolume = (event) => {
-        let volume = event.target.value;
+    const onChangeVolume = (event) => {
+        const volume = event.target.value;
 
-        this.props.calculateResult(this.props.exchange, volume);
+        props.calculateVolume(volume);
     };
 
-    onChangeCurrency = (exchange) => {
-
-        this.props.calculateResult(exchange, this.props.volume);
-
-        // this.setState({ exchange, result });
+    const onChangeCurrency = (exchange) => {
+        props.setExchange(exchange);
+        props.calculateResult(exchange.sale, props.volume);
     };
 
-    isActiveButton = (exchange) => this.props.exchange && exchange.ccy === this.props.exchange.ccy;
+    const isActiveButton = (exchange) => props.exchange && exchange.ccy === props.exchange.ccy;
 
-    render() {
+    let buttons = null, calculator = null, selectedCurrencyTitle = '', resultBlock = null;
+    const selectedCryptocurrency = props.selectedCryptocurrency;
 
-        let buttons = null, calculator = null, selectedCurrencyTitle = '', resultBlock = null;
-        const selectedCryptocurrency = this.props.selectedCryptocurrency;
+    if (selectedCryptocurrency) {
+        const {exchanges, title} = props.selectedCryptocurrency;
+        buttons = exchanges.map((exchange) => {
+            const isActive = isActiveButton(exchange);
+            return <Button key={exchange.ccy} isActive={isActive} clicked={() => onChangeCurrency(exchange)}>{exchange.ccy}</Button>;
+        });
 
-        if (selectedCryptocurrency) {
-            const {exchanges, title} = this.props.selectedCryptocurrency;
-            buttons = exchanges.map((exchange) => {
-                const isActive = this.isActiveButton(exchange);
-                return <Button key={exchange.ccy} isActive={isActive} clicked={() => this.onChangeCurrency(exchange)}>{exchange.ccy}</Button>;
-            });
+        selectedCurrencyTitle = selectedCryptocurrency.title;
 
-            selectedCurrencyTitle = selectedCryptocurrency.title;
+        resultBlock = props.exchange ?
+            (<React.Fragment>
+                <b>{props.volume} {title}</b> will be <b>{props.result}</b> in <b>{props.exchange.ccy}</b>
+            </React.Fragment>) : null;
 
-            resultBlock = this.props.exchange ?
-                `${this.props.volume} ${title} will be ${this.props.result} in ${this.props.exchange.ccy}` : null;
+        calculator = (<React.Fragment>
+            <p className={classes.Selectedcurrency}>Selected coin: {selectedCurrencyTitle}</p>
 
-            calculator = (<React.Fragment>
-                <p className={classes.Selectedcurrency}>Selected coin: {selectedCurrencyTitle}</p>
+            <Input type="number" label="Volume" value={props.volume} changed={onChangeVolume}/>
 
-                <label>Volume:</label>
-                <input id="volume" type="number" value={this.props.volume} onChange={this.onChangeVolume}/>
-                <div className={classes.Buttons}>
-                    {buttons}
-                </div>
-                <p>
-                    {resultBlock}
-                </p>
-            </React.Fragment>)
-        }
-
-        return (
-            <div className={classes.Calculator}>
-                {calculator}
+            <div className={classes.Buttons}>
+                {buttons}
             </div>
-        );
+            <p>
+                {resultBlock}
+            </p>
+        </React.Fragment>)
     }
-}
 
-const mapStateToProps = (state) => {
-    return {
-        selectedCryptocurrency: state.cryptocurrency.cryptocurrency,
-        volume: state.calculator.volume,
-        exchange: state.calculator.exchange,
-        result: state.calculator.result
-    }
+    return (
+        <div className={classes.Calculator}>
+            {calculator}
+        </div>
+    );
+
 };
 
-const mapDispatchToProps = (dispatch) => {
-   return {
-       calculateResult: (exchange, volume) => dispatch(actions.calculate(exchange, volume))
-   }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
+export default calculator;

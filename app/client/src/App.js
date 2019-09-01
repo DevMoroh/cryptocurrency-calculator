@@ -1,42 +1,14 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-
-import * as actions from './store/actions';
+import React from 'react';
 
 import './App.css';
-import Cryptocurrencies from './components/Cryptocurrencies/Cryptocurrencies';
-import Calculator from './components/Calculator/Calculator';
+import CryptocurrencyCalculator from './containers/CryptocurrencyCalculator/CryptocurrencyCalculator';
 
-class App extends Component {
-
-  // state = {
-  //     currencies: []
-  // };
-
-  componentDidMount() {
-      this.props.onCryptocurrenciesInit();
-  }
-
-  render() {
+const App = () => {
       return (
           <div className="App">
-              <Cryptocurrencies currencies={this.props.cryptocurrencies} />
-              <Calculator />
+              <CryptocurrencyCalculator />
           </div>
       );
-  }
-}
-
-const mapStateToProps = (state) => {
-    return {
-        cryptocurrencies: state.cryptocurrency.cryptocurrencies,
-    }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onCryptocurrenciesInit: () => dispatch(actions.cryptocurrenciesInit())
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

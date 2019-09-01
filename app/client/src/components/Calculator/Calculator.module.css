@@ -4,12 +4,9 @@
 
 .Selectedcurrency {
     color: #7DACF3;
-}
-
-.Calculator input {
-    border: solid #0D2F52 1px;
-    background: transparent;
-    color: #7DACF3;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 30px auto;
 }
 
 .Calculator input:focus {

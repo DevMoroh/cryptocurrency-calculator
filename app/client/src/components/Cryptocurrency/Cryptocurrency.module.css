@@ -2,11 +2,11 @@
     display: flex;
     flex-flow: row;
     background-color: #0D2F52;
-    width: 25%;
+    width: 225px;
     padding: 15px;
-    height: 110px
+    height: 110px;
+    margin-bottom: 20px;
 }
-
 
 .Currencylist {
     color: #7DACF3;

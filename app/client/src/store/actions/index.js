@@ -11,5 +11,8 @@ export {
 
 export {
     calculate,
-    setCalculatorResult
+    setCalculatorResult,
+    setExchange,
+    setVolume,
+    calculateVolume
 } from './calculator';

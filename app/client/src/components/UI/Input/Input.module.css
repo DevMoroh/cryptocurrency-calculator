@@ -1,0 +1,20 @@
+.InputElement {
+    border: solid #0D2F52 1px;
+    background: transparent;
+    color: #7DACF3;
+    font: inherit;
+    padding: 6px 10px;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.Input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.Label {
+    font-weight: bold;
+    margin-right: 15px;
+}
